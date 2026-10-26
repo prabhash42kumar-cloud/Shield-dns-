@@ -1,0 +1,12 @@
+services:
+  shielddns:
+    build: .
+    restart: unless-stopped
+    environment:
+      ADMIN_TOKEN: ${ADMIN_TOKEN:?Set ADMIN_TOKEN in .env}
+      UPSTREAM_DOH: ${UPSTREAM_DOH:-https://cloudflare-dns.com/dns-query}
+      RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-120}
+    volumes:
+      - ./blocklist.txt:/app/blocklist.txt
+    ports:
+      - "127.0.0.1:8080:8080"
