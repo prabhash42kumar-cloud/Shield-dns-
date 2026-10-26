@@ -1,0 +1,4 @@
+# Starter examples only. Replace with a reputable, maintained blocklist.
+# One domain per line; hosts-file lines are also accepted.
+ads.example.com
+tracking.example.com
